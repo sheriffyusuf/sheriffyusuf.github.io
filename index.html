@@ -63,6 +63,9 @@
 
     <!--Responsive css-->
     <link rel="stylesheet" href="css/responsive.css">
+
+    <!--PageClip Css-->
+    <link rel="stylesheet" href="https://s.pageclip.co/v1/pageclip.css" media="screen">
 </head>
 
 <body>
@@ -1009,8 +1012,9 @@
             <div class="row">
 
                 <div class="col-md-10 col-md-offset-1">
-                    <form id="contact-form" method="post" action="contact.php" class="wow fadeInDown"
-                        data-wow-delay="1.2s">
+                    <form id="contact-form" method="post"
+                        action="https://send.pageclip.co/nXK9pQB5dz6HFia3YoqLp1ZxXD9AybJ4" class="pageclip-form"
+                        class="wow fadeInDown" data-wow-delay="1.2s">
 
                         <div class="messages"></div>
                         <!--you can change the message in contact.php file -->
@@ -1045,7 +1049,10 @@
                                     </div>
                                 </div>
                                 <div class="col-md-12">
-                                    <button type="submit" class="btn btn-send" value="Submit">Send message</button>
+                                    <button type="submit" class="pageclip-form__submit btn btn-send">
+                                        <span>Send Message</span>
+                                    </button>
+                                    <!--  <button type="submit" class="btn btn-send" value="Submit">Send message</button> -->
                                 </div>
                             </div>
                         </div>
@@ -1113,6 +1120,8 @@
 
 
 
+    <!--PageClip Library-->
+    <script src="https://s.pageclip.co/v1/pageclip.js" charset="utf-8"></script>
 
     <!--Latest version JQuery-->
     <script src="js/jquery-3.2.1.min.js"></script>
@@ -1152,7 +1161,12 @@
     <script src="js/main.js"></script>
 
     <script>
-
+        var form = document.querySelector('.pageclip-form')
+        Pageclip.form(form, {
+            onSubmit: function (event) { },
+            onResponse: function (error, response) { },
+            successTemplate: '<h2>Thank you for contacting me!</h2>'
+        })
     </script>
 </body>
 
